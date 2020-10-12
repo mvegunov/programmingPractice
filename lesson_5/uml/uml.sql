@@ -51,27 +51,21 @@ COMMENT ON COLUMN discipline.id IS 'Идентификатор предмета'
 COMMENT ON COLUMN discipline.name IS 'Название предмета';
 
 CREATE TABLE study(
-    id INT NOT NULL,
     pupil_id INT NOT NULL,
     discipline_id INT NOT NULL,
-    PRIMARY KEY(id),
     FOREIGN KEY(pupil_id) REFERENCES pupil(id),
     FOREIGN KEY(discipline_id) REFERENCES discipline(id)
 );
 
-COMMENT ON COLUMN study.id IS 'Идентификатор изучения предмета учеником';
 COMMENT ON COLUMN study.pupil_id IS 'Идентификатор ученика';
 COMMENT ON COLUMN study.discipline_id IS 'Идентификатор предмета';
 
 CREATE TABLE teaching(
-    id INT NOT NULL,
     teacher_id INT NOT NULL,
     discipline_id INT NOT NULL,
-    PRIMARY KEY(id),
     FOREIGN KEY(teacher_id) REFERENCES teacher(id),
     FOREIGN KEY(discipline_id) REFERENCES discipline(id)
 );
 
-COMMENT ON COLUMN teaching.id IS 'Идентификатор преподавания предмета учителем';
 COMMENT ON COLUMN teaching.teacher_id IS 'Идентификатор учителя';
 COMMENT ON COLUMN teaching.discipline_id IS 'Идентификатор предмета';
